@@ -158,6 +158,43 @@
   },
   {
     "ContainingType": "QuanLiChiTieu.Controllers.GroupsController",
+    "Method": "UpdateGroup",
+    "RelativePath": "api/groups/{groupId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "QuanLiChiTieu.DTOs.UpdateGroupRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuanLiChiTieu.Controllers.GroupsController",
+    "Method": "DeleteGroup",
+    "RelativePath": "api/groups/{groupId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuanLiChiTieu.Controllers.GroupsController",
     "Method": "GetGroupMembers",
     "RelativePath": "api/groups/{groupId}/members",
     "HttpMethod": "GET",

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QuanLiChiTieu.DTOs;
 using QuanLiChiTieu.Models;
 
@@ -205,6 +206,48 @@ public class GroupsController : ControllerBase
             message = "User left the group successfully"
         });
     }
+    [HttpPut("{groupId}")]
+    public async Task<IActionResult> UpdateGroup(int groupId, UpdateGroupRequest request)
+    {
+        var group = await _context.Groups.FindAsync(groupId);
+
+        if (group == null)
+            return NotFound("Không tìm thấy nhóm");
+
+        group.GroupName = request.GroupName;
+
+        await _context.SaveChangesAsync();
+
+        return Ok(new
+        {
+            message = "Cập nhật nhóm thành công",
+            groupId = group.GroupId,
+            groupName = group.GroupName
+        });
+    }
+    [HttpDelete("{groupId}")]
+    public async Task<IActionResult> DeleteGroup(int groupId)
+    {
+        var group = await _context.Groups
+            .Include(g => g.GroupMembers)
+            .Include(g => g.Expenses)
+            .FirstOrDefaultAsync(g => g.GroupId == groupId);
+
+        if (group == null)
+            return NotFound("Không tìm thấy nhóm");
+
+        if (group.GroupMembers.Any())
+            return BadRequest("Không thể xóa nhóm còn thành viên");
+
+        if (group.Expenses.Any())
+            return BadRequest("Không thể xóa nhóm còn chi tiêu");
+
+        _context.Groups.Remove(group);
+        await _context.SaveChangesAsync();
+
+        return Ok("Xóa nhóm thành công");
+    }
+
 
 
 

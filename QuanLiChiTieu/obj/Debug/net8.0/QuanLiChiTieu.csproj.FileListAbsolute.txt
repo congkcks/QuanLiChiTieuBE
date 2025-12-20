@@ -135,3 +135,4 @@ C:\Users\ACER\source\repos\QuanLiChiTieu\QuanLiChiTieu\obj\Debug\net8.0\refint\Q
 C:\Users\ACER\source\repos\QuanLiChiTieu\QuanLiChiTieu\obj\Debug\net8.0\QuanLiChiTieu.pdb
 C:\Users\ACER\source\repos\QuanLiChiTieu\QuanLiChiTieu\obj\Debug\net8.0\QuanLiChiTieu.genruntimeconfig.cache
 C:\Users\ACER\source\repos\QuanLiChiTieu\QuanLiChiTieu\obj\Debug\net8.0\ref\QuanLiChiTieu.dll
+C:\Users\ACER\source\repos\QuanLiChiTieu\QuanLiChiTieu\obj\Debug\net8.0\QuanLiChiTieu.sourcelink.json
