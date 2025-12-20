@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\ACER\\source\\repos\\QuanLiChiTieu\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0FC7706F-1C64-41E7-90F7-3A0CA7358AB2}|QuanLiChiTieu\\QuanLiChiTieu.csproj|c:\\users\\acer\\source\\repos\\quanlichitieu\\quanlichitieu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FC7706F-1C64-41E7-90F7-3A0CA7358AB2}|QuanLiChiTieu\\QuanLiChiTieu.csproj|solutionrelative:quanlichitieu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0FC7706F-1C64-41E7-90F7-3A0CA7358AB2}|QuanLiChiTieu\\QuanLiChiTieu.csproj|c:\\users\\acer\\source\\repos\\quanlichitieu\\quanlichitieu\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0FC7706F-1C64-41E7-90F7-3A0CA7358AB2}|QuanLiChiTieu\\QuanLiChiTieu.csproj|solutionrelative:quanlichitieu\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0FC7706F-1C64-41E7-90F7-3A0CA7358AB2}|QuanLiChiTieu\\QuanLiChiTieu.csproj|c:\\users\\acer\\source\\repos\\quanlichitieu\\quanlichitieu\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0FC7706F-1C64-41E7-90F7-3A0CA7358AB2}|QuanLiChiTieu\\QuanLiChiTieu.csproj|solutionrelative:quanlichitieu\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0FC7706F-1C64-41E7-90F7-3A0CA7358AB2}|QuanLiChiTieu\\QuanLiChiTieu.csproj|c:\\users\\acer\\source\\repos\\quanlichitieu\\quanlichitieu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0FC7706F-1C64-41E7-90F7-3A0CA7358AB2}|QuanLiChiTieu\\QuanLiChiTieu.csproj|solutionrelative:quanlichitieu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0FC7706F-1C64-41E7-90F7-3A0CA7358AB2}|QuanLiChiTieu\\QuanLiChiTieu.csproj|c:\\users\\acer\\source\\repos\\quanlichitieu\\quanlichitieu\\controllers\\expensescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 95,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,20 +94,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GroupsController.cs",
               "DocumentMoniker": "C:\\Users\\ACER\\source\\repos\\QuanLiChiTieu\\QuanLiChiTieu\\Controllers\\GroupsController.cs",
               "RelativeDocumentMoniker": "QuanLiChiTieu\\Controllers\\GroupsController.cs",
               "ToolTip": "C:\\Users\\ACER\\source\\repos\\QuanLiChiTieu\\QuanLiChiTieu\\Controllers\\GroupsController.cs",
               "RelativeToolTip": "QuanLiChiTieu\\Controllers\\GroupsController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwB0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T20:13:06.984Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "LeaveGroupRequest.cs",
               "DocumentMoniker": "C:\\Users\\ACER\\source\\repos\\QuanLiChiTieu\\QuanLiChiTieu\\DTOs\\LeaveGroupRequest.cs",
               "RelativeDocumentMoniker": "QuanLiChiTieu\\DTOs\\LeaveGroupRequest.cs",
@@ -119,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "C:\\Users\\ACER\\source\\repos\\QuanLiChiTieu\\QuanLiChiTieu\\DTOs\\LoginRequest.cs",
               "RelativeDocumentMoniker": "QuanLiChiTieu\\DTOs\\LoginRequest.cs",
@@ -131,15 +131,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ACER\\source\\repos\\QuanLiChiTieu\\QuanLiChiTieu\\Program.cs",
               "RelativeDocumentMoniker": "QuanLiChiTieu\\Program.cs",
               "ToolTip": "C:\\Users\\ACER\\source\\repos\\QuanLiChiTieu\\QuanLiChiTieu\\Program.cs",
               "RelativeToolTip": "QuanLiChiTieu\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T05:17:33.023Z"
+              "WhenOpened": "2025-12-16T05:17:33.023Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -310,16 +311,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 458,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }
