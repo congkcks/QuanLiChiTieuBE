@@ -12,13 +12,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection"),
         npgsql =>
         {
+            // ⏱️ Timeout cho từng command (query)
+            npgsql.CommandTimeout(60);
+
+            // 🔁 Retry khi lỗi tạm thời (Supabase sleep, network chập chờn)
             npgsql.EnableRetryOnFailure(
-                maxRetryCount: 5,
-                maxRetryDelay: TimeSpan.FromSeconds(10),
+                maxRetryCount: 10,
+                maxRetryDelay: TimeSpan.FromSeconds(15),
                 errorCodesToAdd: null
             );
         });
 });
+
 
 builder.Services.AddCors(options =>
 {
