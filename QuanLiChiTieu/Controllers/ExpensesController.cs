@@ -228,6 +228,145 @@ public class ExpensesController : ControllerBase
             message = "Expense deleted successfully"
         });
     }
+    [HttpGet("settlement")]
+    public IActionResult GetSettlement(
+    [FromQuery] int groupId,
+    [FromQuery] string? fromDate,
+    [FromQuery] string? toDate)
+    {
+        // 1. Parse date (nếu có)
+        DateOnly? from = null;
+        DateOnly? to = null;
+
+        if (!string.IsNullOrWhiteSpace(fromDate))
+        {
+            if (!DateOnly.TryParse(fromDate, out var f))
+                return BadRequest("Invalid fromDate format");
+            from = f;
+        }
+
+        if (!string.IsNullOrWhiteSpace(toDate))
+        {
+            if (!DateOnly.TryParse(toDate, out var t))
+                return BadRequest("Invalid toDate format");
+            to = t;
+        }
+
+        // 2. Lấy expense theo group (+ date nếu có)
+        var expenseQuery = _context.Expenses
+            .Where(e => e.GroupId == groupId)
+            .AsQueryable();
+
+        if (from.HasValue)
+            expenseQuery = expenseQuery.Where(e => e.ExpenseDate >= from.Value);
+
+        if (to.HasValue)
+            expenseQuery = expenseQuery.Where(e => e.ExpenseDate <= to.Value);
+
+        var expenses = expenseQuery.ToList();
+
+        // 3. Lấy member trong group
+        var members = _context.GroupMembers
+            .Where(gm => gm.GroupId == groupId)
+            .Select(gm => gm.User)
+            .ToList();
+
+        // 4. Tính balance cho từng người
+        var balances = members.Select(member =>
+        {
+            decimal paid = expenses
+                .Where(e => e.UserId == member.UserId)
+                .Sum(e => e.Amount);
+
+            decimal mustPay = 0;
+
+            foreach (var expense in expenses)
+            {
+                var participantIds = expense.ParticipantIds
+                    .Split(',')
+                    .Select(int.Parse)
+                    .ToList();
+
+                if (participantIds.Contains(member.UserId))
+                {
+                    mustPay += expense.Amount / participantIds.Count;
+                }
+            }
+
+            return new
+            {
+                member.UserId,
+                member.FullName,
+                Balance = paid - mustPay
+            };
+        }).ToList();
+
+        // 5. Tách người nhận tiền & người trả tiền
+        var creditors = balances
+            .Where(b => b.Balance > 0)
+            .Select(b => new
+            {
+                b.UserId,
+                b.FullName,
+                Amount = b.Balance
+            })
+            .ToList();
+
+        var debtors = balances
+            .Where(b => b.Balance < 0)
+            .Select(b => new
+            {
+                b.UserId,
+                b.FullName,
+                Amount = -b.Balance // đổi sang số dương
+            })
+            .ToList();
+
+        // 6. Ghép nợ: ai trả cho ai
+        var settlements = new List<object>();
+
+        int i = 0, j = 0;
+
+        while (i < debtors.Count && j < creditors.Count)
+        {
+            var debtor = debtors[i];
+            var creditor = creditors[j];
+
+            var payAmount = Math.Min(debtor.Amount, creditor.Amount);
+
+            settlements.Add(new
+            {
+                fromUserId = debtor.UserId,
+                fromUserName = debtor.FullName,
+                toUserId = creditor.UserId,
+                toUserName = creditor.FullName,
+                amount = payAmount
+            });
+
+            debtor = new
+            {
+                debtor.UserId,
+                debtor.FullName,
+                Amount = debtor.Amount - payAmount
+            };
+
+            creditor = new
+            {
+                creditor.UserId,
+                creditor.FullName,
+                Amount = creditor.Amount - payAmount
+            };
+
+            debtors[i] = debtor;
+            creditors[j] = creditor;
+
+            if (debtor.Amount == 0) i++;
+            if (creditor.Amount == 0) j++;
+        }
+
+        return Ok(settlements);
+    }
+
 
 
 

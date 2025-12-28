@@ -147,6 +147,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "QuanLiChiTieu.Controllers.ExpensesController",
+    "Method": "GetSettlement",
+    "RelativePath": "api/expenses/settlement",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromDate",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "toDate",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "QuanLiChiTieu.Controllers.GroupsController",
     "Method": "GetAllGroups",
     "RelativePath": "api/groups",

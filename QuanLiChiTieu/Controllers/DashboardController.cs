@@ -75,7 +75,7 @@ namespace QuanLiChiTieu.Controllers
                 e.ExpenseDate.Year == year &&
                 e.ExpenseDate.Month == month)
                .Include(e => e.User)
-               .ToList(); // ⭐ RẤT QUAN TRỌNG
+               .ToList();
             var result = expenses.Select(e =>
             {
                 var participantIds = e.ParticipantIds

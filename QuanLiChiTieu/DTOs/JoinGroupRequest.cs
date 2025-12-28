@@ -1,5 +1,4 @@
 ﻿namespace QuanLiChiTieu.DTOs;
-
 public class JoinGroupRequest
 {
     public int GroupId { get; set; }
